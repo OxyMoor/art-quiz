@@ -1,0 +1,262 @@
+@media all and (max-width: 1067px) {
+    .categories-cards {
+        height: 90vw;
+        overflow: hidden;
+    }
+
+    .category-card-wrap {
+        width: 23%;
+    }
+
+    .show-more-categories {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20vw;
+    }
+
+    .answers-wrap {
+        width: 100%;
+    }
+}
+
+
+@media all and (max-width: 1124px) {
+    .header, .main, .footer {
+        width: 90vw;
+    }
+
+    .page-wrap {
+        flex-direction: column;
+    }
+
+    /* .main-container {
+        min-height: 800px;
+    } */
+
+    .page-inner-wrap {
+        width: 100%;
+        height: 320px;
+    }
+
+    .quizes-page-wrap {
+        margin-bottom: 30px;
+    }
+
+    .artists-quiz {
+        margin-bottom: 30px;
+    }
+
+    .settings-volume {
+        margin-bottom: 30px;
+    }
+
+    .quiz-name {
+       bottom: 0;
+       background: rgba(255, 255, 255, 0.65);
+    }
+
+    .settings-volume, .settings-timer {
+        padding: 20px 0;
+    }
+
+    .volume-checkbox-wrap {
+        height: 50px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    /* .main-container {
+        min-height: 650px;
+    } */
+
+    .logo {
+        width: 150px;
+    }
+
+    .page-wrap {
+        height: 85%;
+    }
+
+    .quiz-name {
+       bottom: 0;
+       background: rgba(255, 255, 255, 0.65);
+    }
+
+    .header-container {
+        justify-content: flex-start;
+    }
+
+    /* .categories-cards {
+        height: 85vw;
+    } */
+
+    /* .categories-page-name,  */
+    .settings-page-name, .score-page-name {
+        position: absolute;
+        top: -85px;
+        right: 0;
+    }
+
+    .question-page .to-home-button {
+        position: absolute;
+        top: -110px;
+        right: 150px;
+    }
+
+    .timer-wrap {
+        position: absolute;
+        top: -110px;
+        right: 0;
+    }
+
+    .category-header {
+        padding: 15px 5px 5px 5px;
+    }
+
+    .category-card-score {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .category-card-number {
+        font-size: 36px;
+        line-height: 44px;
+    }
+    
+    /* .category-card-name {
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: -0.02em;
+    } */
+
+    .modal-inner-wrap {
+        width: 90%;
+        height: 100vw;
+        padding-top: 15px;
+        padding-bottom: 30px;
+    }
+
+    .modal-picture {
+        width: 60%;
+    }
+
+    .go-text {
+        font-size: 75px;
+        line-height: 80px;
+    }
+}
+
+@media all and (max-width: 520px) {
+    .header-container {
+        height: 160px;
+    }
+
+    .categories-cards {
+        height: 125vw;
+    }
+
+    .show-more-categories {
+        height: 25vw;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 150px;
+    }
+
+    .button {
+        width: 140px;
+    }
+
+    .button-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .category-card-wrap {
+        width: 31%;
+    }
+
+    .question {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+    }
+
+    .question-page .to-home-button {
+        top: -130px;
+        right: 0;
+    }
+
+    .timer-wrap {
+        top: -80px;
+    }
+
+    .answer-text {
+        font-size: 15px;
+        line-height: 15px;
+    }
+
+    .modal-inner-wrap {
+        top: 30px;
+        width: 95%;
+        height: 120vw;
+        padding-bottom: 30px;
+    }
+
+    .modal-congratulations-text {
+        font-size: 30px;
+        line-height: 30px;
+    }
+    
+    .modal-score-text {
+        font-size: 85px;
+        line-height: 85px;
+    }
+
+    .button-text {
+        font-size: 15px;
+        line-height: 15px;
+    }
+
+    .play-again-button {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 420px) {
+    .logo {
+        width: 100px;
+    }
+
+    .categories-page-name {
+        font-size: 24px;
+        line-height: 29px;
+    }
+
+    .category-card-score {
+        top: 5px;
+        font-size: 10px;
+        line-height: 13px;
+    }
+
+    .category-header {
+        padding: 10px 5px 5px 5px;
+    }
+
+    .modal-congratulations-text {
+        font-size: 24px;
+    }
+
+    .go-text {
+        font-size: 50px;
+        line-height: 50px;
+    }
+
+    .again-text {
+        font-size: 30px;
+        line-height: 30px;
+    }
+}
