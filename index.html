@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Quiz</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,900;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+    <div class="wrapper">
+    <header class="header">
+        <div class="container header-container">
+            <img class="logo" src="assets/logo.svg" alt="icon: logo">
+        </div>
+    </header>
+    <main class="main">
+        <div class="container main-container">
+            <section class="section home-page  section-active">
+                <div class="page-wrap quizes-page-wrap">
+                    <div class="page-inner-wrap artists-quiz">
+                        <span class="quiz-name artists-quiz-name">художники</span>
+                    </div>
+                    <div class="page-inner-wrap pictures-quiz">
+                        <span class="quiz-name pictures-quiz-name">картины</span>
+                    </div>
+                </div>
+                <div class="settings-wrap">
+                    <button class="button settings-button">
+                        <img class="button-icon settings-button-img" src="assets/settings.svg" alt="icon: settings">
+                        <span class="button-text">настройки</span>
+                    </button>
+                </div>
+            </section>  
+
+            <section class="section settings-page">
+                <span class="page-name settings-page-name">настройки</span>
+                <div class="page-wrap settings-page-wrap">
+                    <div class="page-inner-wrap settings-volume">                        
+                        <img class="volume-icon" src="assets/volume-on.svg" alt="icon: volume"> 
+                        <div class="volume-range-wrap">
+                            <button class="volume-range-button volume-on">
+                                <img class="volume-range-icon" src="assets/volume-on.svg" alt="icon: min volume">
+                            </button>
+                            <input class="volume-range" type="range" min="0" max="1" step="0.1" value="0.5">
+                        </div>
+                        <span class="settings-name">звук</span>
+                    </div>
+                    <div class="page-inner-wrap settings-timer">
+                        <img class="timer-icon" src="assets/timer.svg" alt="icon: timer">
+                        <div class="timer-checkbox-wrap">
+                            <div class="timer-checkbox"></div>
+                            <span class="timer-label">вкл / выкл</span>
+                        </div>
+                        <span class="settings-name">игра на время</span>
+                    </div>
+                </div>
+                <div class="settings-wrap">
+                    <button class="button save-button">
+                        <span class="button-text">сохранить</span>
+                    </button>
+                    <button class="button default-button">
+                        <span class="button-text">по умолчанию</span>
+                    </button>
+                </div>
+            </section>  
+            
+            <section class="section categories-page">
+                <div class="page-header">
+                    <button class="button to-home-button">
+                        <img class="button-icon to-home-button-img" src="assets/home.svg" alt="icon: to home">
+                        <span class="button-text">домой</span>
+                    </button>
+                    <span class="page-name categories-page-name">категории</span>
+                    <!-- <button class="button score-button">
+                        <img class="button-icon score-button-icon" src="assets/settings.svg" alt="icon: score">
+                        <span class="button-text">счет</span>
+                    </button> -->
+                </div>
+                <div class="categories-cards">
+                    <div class="category-card-wrap">
+                        <div class="category-card" data-category="1">
+                            <div class="category-header">
+                                <span class="category-card-number">1</span>
+                                <span class="category-card-score">0 / 10</span>
+                            </div>
+                            <img class="category-card-image" src="assets/category-1-grayscale.png" alt="image: category 1 image">
+                            <button class="button play-again-button" data-again="1">
+                                <img class="button-icon play-again-button-icon" src="assets/again.svg" alt="icon: play again">
+                                <span class="button-text">повторить</span>
+                            </button>
+                        </div>
+                        <div class="curtain" data-curtain="1"></div>
+                    </div>
+
+                    <div class="category-card-wrap">
+                        <div class="category-card" data-category="2">
+                            <div class="category-header">
+                                <span class="category-card-number">2</span>
+                                <span class="category-card-score">0 / 10</span>
+                            </div>
+                            <img class="category-card-image" src="assets/category-2-grayscale.png" alt="image: category 2 image">
+                            <button class="button play-again-button" data-again="2">
+                                <img class="button-icon play-again-button-icon" src="assets/again.svg" alt="icon: play again">
+                                <span class="button-text">повторить</span>
+                            </button>
+                        </div>
+                        <div class="curtain" data-curtain="2"></div>
+                    </div>
+                    
+                    <div class="category-card-wrap">
+                        <div class="category-card" data-category="3">
+                            <div class="category-header">
+                                <span class="category-card-number">3</span>
+                                <span class="category-card-score">0 / 10</span>
+                            </div>
+                            <img class="category-card-image" src="assets/category-3-grayscale.png" alt="image: category 3 image">
+                            <button class="button play-again-button" data-again="3">
+                                <img class="button-icon play-again-button-icon" src="assets/again.svg" alt="icon: play again">
+                                <span class="button-text">повторить</span>
+                            </button>
+                        </div>
+                        <div class="curtain" data-curtain="3"></div>
+                    </div>
+
+                    <div class="category-card-wrap">
+                        <div class="category-card" data-category="4">
+                            <div class="category-header">
+                                <span class="category-card-number">4</span>
+                                <span class="category-card-score">0 / 10</span>
+                            </div>
+                            <img class="category-card-image" src="assets/category-4-grayscale.png" alt="image: category 4 image">
+                            <button class="button play-again-button" data-again="4">
+                                <img class="button-icon play-again-button-icon" src="assets/again.svg" alt="icon: play again">
+                                <span class="button-text">повторить</span>
+                            </button>
+                        </div>
+                        <div class="curtain" data-curtain="4"></div>
+                    </div>
+
+                    <div class="category-card-wrap">
+                        <div class="category-card" data-category="5">
+                            <div class="category-header">
+                                <span class="category-card-number">5</span>
+                                <span class="category-card-score">0 / 10</span>
+                            </div>
+                            <img class="category-card-image" src="assets/category-5-grayscale.png" alt="image: category 5 image">
+                            <button class="button play-again-button" data-again="5">
+                                <img class="button-icon play-again-button-icon" src="assets/again.svg" alt="icon: play again">
+                                <span class="button-text">повторить</span>
+                            </button>
+                        </div>
+                        <div class="curtain" data-curtain="5"></div>
+                    </div>
+
+                    <div class="category-card-wrap">
+                        <div class="category-card" data-category="6">
+                            <div class="category-header">
+                                <span class="category-card-number">6</span>
+                                <span class="category-card-score">0 / 10</span>
+                            </div>
+                            <img class="category-card-image" src="assets/category-6-grayscale.png" alt="image: category 6 image">
+                            <button class="button play-again-button" data-again="6">
+                                <img class="button-icon play-again-button-icon" src="assets/again.svg" alt="icon: play again">
+                                <span class="button-text">повторить</span>
+                            </button>
+                        </div>
+                        <div class="curtain" data-curtain="6"></div>
+                    </div>
+
+                    <div class="category-card-wrap">
+                        <div class="category-card" data-category="7">
+                            <div class="category-header">
+                                <span class="category-card-number">7</span>
+                                <span class="category-card-score">0 / 10</span>
+                            </div>
+                            <img class="category-card-image" src="assets/category-7-grayscale.png" alt="image: category 7 image">
+                            <button class="button play-again-button" data-again="7">
+                                <img class="button-icon play-again-button-icon" src="assets/again.svg" alt="icon: play again">
+                                <span class="button-text">повторить</span>
+                            </button>
+                        </div>
+                        <div class="curtain" data-curtain="7"></div>
+                    </div>
+
+                    <div class="category-card-wrap">
+                        <div class="category-card" data-category="8">
+                            <div class="category-header">
+                                <span class="category-card-number">8</span>
+                                <span class="category-card-score">0 / 10</span>
+                            </div>
+                            <img class="category-card-image" src="assets/category-8-grayscale.png" alt="image: category 8 image">
+                            <button class="button play-again-button" data-again="8">
+                                <img class="button-icon play-again-button-icon" src="assets/again.svg" alt="icon: play again">
+                                <span class="button-text">повторить</span>
+                            </button>
+                        </div>
+                        <div class="curtain" data-curtain="8"></div>
+                    </div>
+
+                    <div class="category-card-wrap">
+                        <div class="category-card" data-category="9">
+                            <div class="category-header">
+                                <span class="category-card-number">9</span>
+                                <span class="category-card-score">0 / 10</span>
+                            </div>
+                            <img class="category-card-image" src="assets/category-9-grayscale.png" alt="image: category 9 image">
+                            <button class="button play-again-button" data-again="9">
+                                <img class="button-icon play-again-button-icon" src="assets/again.svg" alt="icon: play again">
+                                <span class="button-text">повторить</span>
+                            </button>
+                        </div>
+                        <div class="curtain" data-curtain="9"></div>
+                    </div>
+
+                    <div class="category-card-wrap">
+                        <div class="category-card" data-category="10">
+                            <div class="category-header">
+                                <span class="category-card-number">10</span>
+                                <span class="category-card-score">0 / 10</span>
+                            </div>
+                            <img class="category-card-image" src="assets/category-10-grayscale.png" alt="image: category 10 image">
+                            <button class="button play-again-button" data-again="10">
+                                <img class="button-icon play-again-button-icon" src="assets/again.svg" alt="icon: play again">
+                                <span class="button-text">повторить</span>
+                            </button>
+                        </div>
+                        <div class="curtain" data-curtain="10"></div>
+                    </div>
+
+                    <button class="show-more-categories">
+                        <img class="show-more-icon" src="assets/more.svg" alt="icon: show more">
+                    </button>
+                </div>
+            </section>
+
+            <section class="section question-page question-artist-page">
+                <div class="page-header">
+                    <button class="button to-home-button">
+                        <img class="button-icon to-home-button-img" src="assets/home.svg" alt="icon: to home">
+                        <span class="button-text">домой</span>
+                    </button>
+                    <span class="question">выберите автора картины</span>
+                    <div class="timer-wrap">
+                        <img class="button-icon time-icon" src="assets/timer-on.svg" alt="icon: timer">
+                        <span class="time">10</span>
+                    </div>
+                </div>
+                <div class="picture-wrap">
+                    <!-- !!!!!!! -->
+                    <!-- <img class="picture-image" src="assets/question-01.png" alt="image: picture"> -->
+                    <!-- !!!!!!! -->
+                </div>
+                <div class="answers-wrap">
+                    <div class="answer">
+                        <span class="answer-text" data-answer="0">1</span>
+                    </div>
+                    <div class="answer">
+                        <span class="answer-text" data-answer="1">2</span>
+                    </div>
+                    <div class="answer">
+                        <span class="answer-text" data-answer="2">3</span>
+                    </div>
+                    <div class="answer">
+                        <span class="answer-text" data-answer="3">4</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- <section class="section question-page question-picture-page">
+                <div class="page-header">
+                    <button class="button to-home-button">
+                        <img class="button-icon to-home-button-img" src="assets/home.svg" alt="icon: to home">
+                        <span class="button-text">home</span>
+                    </button>
+                    <span class="question">the munck picture is...</span>
+                    <div class="timer-wrap">
+                        <img class="button-icon time-icon" src="assets/timer-on.svg" alt="icon: timer">
+                        <span class="time">03:59</span>
+                    </div>
+                </div>
+                <div class="picture-wrap"> 
+                   
+                    <img class="picture-option-image" src="assets/question-item-1.png" alt="image: picture">
+                    <img class="picture-option-image" src="assets/question-item-2.png" alt="image: picture">
+                    <img class="picture-option-image" src="assets/question-item-3.png" alt="image: picture">
+                    <img class="picture-option-image" src="assets/question-item-4.png" alt="image: picture">
+                    
+                </div>
+                <div class="answers-wrap">
+                    <div class="answer">
+                        <span class="answer-text">answer 1</span>
+                    </div>
+                    <div class="answer">
+                        <span class="answer-text">answer 2</span>
+                    </div>
+                    <div class="answer">
+                        <span class="answer-text">answer 3</span>
+                    </div>
+                    <div class="answer">
+                        <span class="answer-text">answer 4</span>
+                    </div>
+                </div>
+            </section> -->
+
+            <section class="section score-page">
+                <div class="page-header">
+                    <button class="button to-home-button">
+                        <img class="button-icon to-home-button-img" src="assets/home.svg" alt="icon: to home">
+                        <span class="button-text">домой</span>
+                    </button>
+                    <span class="page-name score-page-name">счет</span>
+                    <button class="button to-categories-button">
+                        <img class="button-icon to-categories-button-img" src="assets/categories.svg" alt="icon: to categories">
+                        <span class="button-text">категории</span>
+                    </button>
+                </div>
+                <div class="categories-cards score-cards">
+                    <div class="category-card-wrap score-card-wrap">
+                        <div class="category-card score-card" data-score="1">
+                            <div class="category-header score-header">
+                                <span class="category-card-title">категория</span>
+                                <div class="score-title">
+                                    <span class="category-card-number"></span>
+                                    <img class="answer-result" src="" alt="icon: answer result">
+                                </div>
+                            </div>
+                            <img class="category-card-image" src="" alt="image: category 1 image"> 
+                        </div>
+                    </div>
+
+                    <div class="category-card-wrap score-card-wrap">
+                        <div class="category-card score-card" data-score="2">
+                            <div class="category-header score-header">
+                                <span class="category-card-title">категория</span>
+                                <div class="score-title">
+                                    <span class="category-card-number"></span>
+                                    <img class="answer-result" src="" alt="icon: answer result">
+                                </div>
+                            </div>
+                            <img class="category-card-image" src="" alt="image: category 2 image"> 
+                        </div>
+                    </div>
+                    
+                    <div class="category-card-wrap score-card-wrap">
+                        <div class="category-card score-card" data-score="3">
+                            <div class="category-header score-header">
+                                <span class="category-card-title">категория</span>
+                                <div class="score-title">
+                                    <span class="category-card-number"></span>
+                                    <img class="answer-result" src="" alt="icon: answer result">
+                                </div>
+                            </div>
+                            <img class="category-card-image" src="" alt="image: category 3 image"> 
+                        </div>
+                    </div>
+
+                    <div class="category-card-wrap score-card-wrap">
+                        <div class="category-card score-card" data-score="4">
+                            <div class="category-header score-header">
+                                <span class="category-card-title">категория</span>
+                                <div class="score-title">
+                                    <span class="category-card-number"></span>
+                                    <img class="answer-result" src="" alt="icon: answer result">
+                                </div>
+                            </div>
+                            <img class="category-card-image" src="" alt="image: category 4 image"> 
+                        </div>
+                    </div>
+
+                    <div class="category-card-wrap score-card-wrap">
+                        <div class="category-card score-card" data-score="5">
+                            <div class="category-header score-header">
+                                <span class="category-card-title">категория</span>
+                                <div class="score-title">
+                                    <span class="category-card-number"></span>
+                                    <img class="answer-result" src="" alt="icon: answer result">
+                                </div>
+                            </div>
+                            <img class="category-card-image" src="" alt="image: category 5 image"> 
+                        </div>
+                    </div>
+
+                    <div class="category-card-wrap score-card-wrap">
+                        <div class="category-card score-card" data-score="6">
+                            <div class="category-header score-header">
+                                <span class="category-card-title">категория</span>
+                                <div class="score-title">
+                                    <span class="category-card-number"></span>
+                                    <img class="answer-result" src="" alt="icon: answer result">
+                                </div>
+                            </div>
+                            <img class="category-card-image" src="" alt="image: category 6 image"> 
+                        </div>
+                    </div>
+
+                    <div class="category-card-wrap score-card-wrap">
+                        <div class="category-card score-card" data-score="7">
+                            <div class="category-header score-header">
+                                <span class="category-card-title">категория</span>
+                                <div class="score-title">
+                                    <span class="category-card-number"></span>
+                                    <img class="answer-result" src="" alt="icon: answer result">
+                                </div>
+                            </div>
+                            <img class="category-card-image" src="" alt="image: category 7 image"> 
+                        </div>
+                    </div>
+
+                    <div class="category-card-wrap score-card-wrap">
+                        <div class="category-card score-card" data-score="8">
+                            <div class="category-header score-header">
+                                <span class="category-card-title">категория</span>
+                                <div class="score-title">
+                                    <span class="category-card-number"></span>
+                                    <img class="answer-result" src="" alt="icon: answer result">
+                                </div>
+                            </div>
+                            <img class="category-card-image" src="" alt="image: category 8 image"> 
+                        </div>
+                    </div>
+
+                    <div class="category-card-wrap score-card-wrap">
+                        <div class="category-card score-card" data-score="9">
+                            <div class="category-header score-header">
+                                <span class="category-card-title">категория</span>
+                                <div class="score-title">
+                                    <span class="category-card-number"></span>
+                                    <img class="answer-result" src="" alt="icon: answer result">
+                                </div>
+                            </div>
+                            <img class="category-card-image" src="" alt="image: category 9 image"> 
+                        </div>
+                    </div>
+
+                    <div class="category-card-wrap score-card-wrap">
+                        <div class="category-card score-card" data-score="10">
+                            <div class="category-header score-header">
+                                <span class="category-card-title">категория</span>
+                                <div class="score-title">
+                                    <span class="category-card-number"></span>
+                                    <img class="answer-result" src="" alt="icon: answer result">
+                                </div>
+                            </div>
+                            <img class="category-card-image" src="" alt="image: category 10 image"> 
+                        </div>
+                    </div>
+
+                    <button class="show-more-categories show-more-score">
+                        <img class="show-more-icon" src="assets/more.svg" alt="icon: show more">
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container footer-container">
+            <a class="link footer-link github-link" href="https://github.com/SeriakovaOksana">Seriakova Oksana</a>
+            <span class="year">	&copy; 2021</span>
+            <a class="link footer-link rss-link" href="https://rs.school/js/">
+                <img class="srr-icon" src="assets/rs_school_js.svg" alt="icon: rss">
+            </a>
+        </div>
+    </footer>
+
+    <div class="modal modal-answer">
+        <div class="modal-inner-wrap">
+            <img class="answer-result" src="assets/right-answer.svg" alt="icon: answer result">
+            <img class="modal-picture" src="assets/modal-picture-01.png" alt="image: picture">
+            <span class="modal-text modal-picture-name">Girl with a Pearl Earring</span>
+            <span class="modal-text modal-picture-author">Johannes Vermeer</span>
+            <span class="modal-text modal-picture-year">1665</span>
+            <button class="button next-button">
+                <span class="button-text">далее</span>
+            </button>
+        </div>
+    </div>
+    <div class="modal modal-congratulation">
+        <div class="modal-inner-wrap">
+            <span class="modal-congratulations-text">поздравляю !</span>
+            <span class="modal-score-text">8 / 10</span>
+            <img class="congratulations-icon" src="assets/congratulations.svg" alt="icon: congratulations"> 
+            <div class="modal-buttons-wrap">
+                <button class="button to-home-button">
+                    <img class="button-icon to-home-button-img" src="assets/home.svg" alt="icon: to home">
+                    <span class="button-text">домой</span>
+                </button>
+                <button class="button next-quiz-button">
+                    <span class="button-text">следующий quiz</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal modal-grand">
+        <div class="modal-inner-wrap">
+            <img class="grand-image" src="assets/grand.png" alt="image: grand">
+            <button class="button to-home-button">
+                <img class="button-icon to-home-button-img" src="assets/home.svg" alt="icon: to home">
+                <span class="button-text">домой</span>
+            </button>
+        </div>
+    </div>
+    <div class="modal modal-game-over">
+        <div class="modal-inner-wrap">
+            <span class="go-text">game <br> over</span>
+            <img class="go-icon" src="assets/cup.svg" alt="icon: cup">
+            <span class="again-text">играть снова ?</span>
+            <div class="modal-buttons-wrap">
+                <button class="button yes-button">
+                    <span class="button-text">да</span>
+                </button>
+                <button class="button no-button">
+                    <span class="button-text">нет</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
