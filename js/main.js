@@ -520,7 +520,7 @@ timerCheckbox.addEventListener('click', function() {
 volumeBtn.addEventListener('click', toggleVolumeIcon);
 volumeRange.addEventListener('click', updateRange);
 volumeRange.addEventListener('mousemove', updateRange);
-volumeRange.addEventListener('touchstart', updateRange);
+volumeRange.addEventListener('touchend', updateRange);
 volumeRange.addEventListener('touchmove', updateRange);
 
 saveBtn.addEventListener('click', function() {
