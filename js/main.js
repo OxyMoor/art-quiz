@@ -46,6 +46,8 @@ const volumeBtnIcon = document.querySelector('.volume-range-icon');
 const categoryCards = categoriesSection.querySelectorAll('.category-card');
 const pictureWrap = document.querySelector('.picture-wrap');
 
+const curtains = document.querySelectorAll('.curtain');
+
 const artQuizBtn = document.querySelector('.artists-quiz-name');
 const picQuizBtn = document.querySelector('.pictures-quiz-name');
 
@@ -336,13 +338,13 @@ function renderArtistsQuestion() {
 
 const scoreCard = document.querySelectorAll('.score-card')
 
-function renderScore() {
+function renderScore(catNum) {
     scoreCard.forEach(item => {
-        item.querySelector('.category-card-number').textContent = categoryNumber;
-        item.querySelector('.answer-result').src = `assets/${scoreInfo[+item.dataset.score + +(categoryNumber - 1) * categoriesCount]}.svg`;
-        item.querySelector('.category-card-image').src = `https://raw.githubusercontent.com/SeriakovaOksana/image-data/master/img/${(+item.dataset.score + +(categoryNumber - 1) * categoriesCount) - 1}.jpg`;
+        item.querySelector('.category-card-number').textContent = catNum;
+        item.querySelector('.answer-result').src = `assets/${scoreInfo[+item.dataset.score + +(catNum - 1) * categoriesCount]}.svg`;
+        item.querySelector('.category-card-image').src = `https://raw.githubusercontent.com/SeriakovaOksana/image-data/master/img/${(+item.dataset.score + +(catNum - 1) * categoriesCount) - 1}.jpg`;
     
-        if (scoreInfo[+item.dataset.score + +(categoryNumber - 1) * categoriesCount] === 'wrong-answer') {
+        if (scoreInfo[+item.dataset.score + +(catNum - 1) * categoriesCount] === 'wrong-answer') {
             item.querySelector('.category-card-image').style.filter = 'invert(0%) sepia(100%) saturate(30%) hue-rotate(80deg) brightness(92%) contrast(107%)';
         } else {
             item.querySelector('.category-card-image').style.filter = '';
@@ -394,7 +396,7 @@ categoryCards.forEach(item => {
         categoryNumber = e.currentTarget.dataset.category;
 
         if (e.target === item.querySelector('.category-card-score')) {
-            renderScore()
+            renderScore(categoryNumber)
             showActiveSection(scoreSection);
         } else {
             showActiveSection(questionSection);
@@ -413,7 +415,10 @@ categoryCards.forEach(item => {
     });
 });
 
-// document.querySelectorAll('.curtain').forEach(item => item.addEventListener)
+curtains.forEach(item => item.addEventListener('click', function() {
+    renderScore(item.previousElementSibling.dataset.category);
+    showActiveSection(scoreSection);
+}))
 
 fromQuestionsToHomeBtn.addEventListener('click', function() {
     showActiveSection(homeSection);
