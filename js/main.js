@@ -413,6 +413,8 @@ categoryCards.forEach(item => {
     });
 });
 
+// document.querySelectorAll('.curtain').forEach(item => item.addEventListener)
+
 fromQuestionsToHomeBtn.addEventListener('click', function() {
     showActiveSection(homeSection);
     
@@ -518,6 +520,8 @@ timerCheckbox.addEventListener('click', function() {
 volumeBtn.addEventListener('click', toggleVolumeIcon);
 volumeRange.addEventListener('click', updateRange);
 volumeRange.addEventListener('mousemove', updateRange);
+volumeRange.addEventListener('touchstart', updateRange);
+volumeRange.addEventListener('touchmove', updateRange);
 
 saveBtn.addEventListener('click', function() {
     setUserSettings();
