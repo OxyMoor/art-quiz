@@ -519,6 +519,7 @@ timerCheckbox.addEventListener('click', function() {
 
 volumeBtn.addEventListener('click', toggleVolumeIcon);
 volumeRange.addEventListener('click', updateRange);
+volumeRange.addEventListener('mousedown', updateRange);
 volumeRange.addEventListener('mousemove', updateRange);
 volumeRange.addEventListener('touchend', updateRange);
 volumeRange.addEventListener('touchmove', updateRange);
