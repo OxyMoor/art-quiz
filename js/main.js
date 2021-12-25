@@ -238,14 +238,15 @@ function setTime() {
 
 function renderQuestionType() {
     if (quizType === artistsType) {
-        pictureWrap.innerHTML = `<img class="picture-image" src="assets/question-01.png" alt="image: picture">`;
+        pictureWrap.innerHTML = `<img class="picture-image" src="assets/question-01.png" alt="image: picture">
+                                    <span class="progress"> 1 / 10 </span>`;
         document.querySelector('.question').textContent = 'выберите автора картины';
     } else if (quizType === picturesType) {
         pictureWrap.innerHTML = `<img class="picture-option-image" src="assets/question-item-1.png" alt="image: picture">
         <img class="picture-option-image" src="assets/question-item-2.png" alt="image: picture">
         <img class="picture-option-image" src="assets/question-item-3.png" alt="image: picture">
         <img class="picture-option-image" src="assets/question-item-4.png" alt="image: picture">`;
-        document.querySelector('.question').textContent = 'ds,thbnt rfhnbye veyrf';
+        document.querySelector('.question').textContent = 'выберите картину -автора-';
     }
 }
 
@@ -272,6 +273,7 @@ function renderArtistsQuestion() {
         hideModal(modalAnswer);
 
         modalScore.textContent = `${scoreCounter} / ${questionsCount}`;
+        document.querySelector('.progress').textContent = `${questionsCount} / ${questionsCount}`;
 
         if (totalScore === questionsCount * categoriesCount) {
             showModal(modalGrand);
@@ -326,9 +328,11 @@ function renderArtistsQuestion() {
             modalPictureAuthor.textContent = result[firstQuestionNumber - 1]['author'];
             modalPictureYear.textContent = result[firstQuestionNumber - 1]['year'];
         });
-        
+
         firstQuestionNumber++;
-    } 
+
+        document.querySelector('.progress').textContent = `${firstQuestionNumber - (categoryNumber - 1) * questionsCount} / ${questionsCount}`;
+    }  
 }
 
 const scoreCard = document.querySelectorAll('.score-card')
