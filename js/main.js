@@ -29,7 +29,6 @@ const fromScoreToCategoriesBtn = scoreSection.querySelector('.to-categories-butt
 const fromCongratulationsToHomeBtn = modalCongratulation.querySelector('.to-home-button');
 const fromGrandToHomeBtn = modalGrand.querySelector('.to-home-button');
 const fromCongratulationsToNextQuizBtn = modalCongratulation.querySelector('.next-quiz-button');
-// const scoreBtn = document.querySelector('.score-button');
 const nextQuestBtn = document.querySelector('.next-button');
 const nextQuizBtn = document.querySelector('.next-quiz-button');
 const yesBtn = document.querySelector('.yes-button');
@@ -46,8 +45,6 @@ const volumeBtnIcon = document.querySelector('.volume-range-icon');
 const categoryCards = categoriesSection.querySelectorAll('.category-card');
 const pictureWrap = document.querySelector('.picture-wrap');
 
-const curtains = document.querySelectorAll('.curtain');
-
 const artQuizBtn = document.querySelector('.artists-quiz-name');
 const picQuizBtn = document.querySelector('.pictures-quiz-name');
 
@@ -63,8 +60,6 @@ const modalScore = document.querySelector('.modal-score-text');
 
 const categoriesCards = categoriesSection.querySelector('.categories-cards');
 const scoreCards = scoreSection.querySelector('.score-cards');
-
-// const scoreOnCategory = document.querySelector('.category-card-score');
 
 const timerCheckbox = document.querySelector('.timer-checkbox');
 const volumeRange = document.querySelector('.volume-range');
@@ -228,6 +223,7 @@ function setTime() {
             clearInterval(interval);
             isTimeOver = true;
             answerResultIcon.src = 'assets/wrong-answer.svg';
+            scoreInfo[firstQuestionNumber] = 'wrong-answer';
             showModal(modalAnswer);
 
             if (settings['volume'] === 'on') {
@@ -293,7 +289,6 @@ function renderArtistsQuestion() {
             currentCategory.querySelector('.category-card-score').style.color = '#660033';
             currentCategory.querySelector('.category-card-score').textContent = `${scoreCounter} / 10`;
             currentCategory.querySelector('.category-card-number').style.color = '#660033';
-            // currentCategory.querySelector('.category-card-name').style.color = '#660033';
             currentCategory.querySelector('.category-card-image').src = `assets/category-${categoryNumber}-color.png`
     
             playedCategories[categoryNumber] = scoreCounter;
@@ -338,13 +333,13 @@ function renderArtistsQuestion() {
 
 const scoreCard = document.querySelectorAll('.score-card')
 
-function renderScore(catNum) {
+function renderScore() {
     scoreCard.forEach(item => {
-        item.querySelector('.category-card-number').textContent = catNum;
-        item.querySelector('.answer-result').src = `assets/${scoreInfo[+item.dataset.score + +(catNum - 1) * categoriesCount]}.svg`;
-        item.querySelector('.category-card-image').src = `https://raw.githubusercontent.com/SeriakovaOksana/image-data/master/img/${(+item.dataset.score + +(catNum - 1) * categoriesCount) - 1}.jpg`;
+        item.querySelector('.category-card-number').textContent = categoryNumber;
+        item.querySelector('.answer-result').src = `assets/${scoreInfo[+item.dataset.score + +(categoryNumber - 1) * categoriesCount]}.svg`;
+        item.querySelector('.category-card-image').src = `https://raw.githubusercontent.com/SeriakovaOksana/image-data/master/img/${(+item.dataset.score + +(categoryNumber - 1) * categoriesCount) - 1}.jpg`;
     
-        if (scoreInfo[+item.dataset.score + +(catNum - 1) * categoriesCount] === 'wrong-answer') {
+        if (scoreInfo[+item.dataset.score + +(categoryNumber - 1) * categoriesCount] === 'wrong-answer') {
             item.querySelector('.category-card-image').style.filter = 'invert(0%) sepia(100%) saturate(30%) hue-rotate(80deg) brightness(92%) contrast(107%)';
         } else {
             item.querySelector('.category-card-image').style.filter = '';
@@ -396,7 +391,7 @@ categoryCards.forEach(item => {
         categoryNumber = e.currentTarget.dataset.category;
 
         if (e.target === item.querySelector('.category-card-score')) {
-            renderScore(categoryNumber)
+            renderScore()
             showActiveSection(scoreSection);
         } else {
             showActiveSection(questionSection);
@@ -410,15 +405,8 @@ categoryCards.forEach(item => {
     
             scoreCounter = 0;
         }
-
-        // scoreInfo = {};
     });
 });
-
-curtains.forEach(item => item.addEventListener('click', function() {
-    renderScore(item.previousElementSibling.dataset.category);
-    showActiveSection(scoreSection);
-}))
 
 fromQuestionsToHomeBtn.addEventListener('click', function() {
     showActiveSection(homeSection);
@@ -458,7 +446,6 @@ answers.forEach(item => {
                 audio.play();
             }
 
-            
             scoreInfo[firstQuestionNumber] = 'right-answer';
             
         } else {
@@ -475,8 +462,6 @@ answers.forEach(item => {
             scoreInfo[firstQuestionNumber] = 'wrong-answer';
         }
 
-        // console.log(scoreInfo)
-
         if ((scoreCounter < questionsCount && firstQuestionNumber === lastQuestionNumber) || (scoreCounter < questionsCount && firstQuestionNumber !== lastQuestionNumber)) {
             document.querySelector(`[data-again='${categoryNumber}']`).style.display = 'flex';
             document.querySelector(`[data-curtain='${categoryNumber}']`).style.display = 'none';
@@ -486,10 +471,6 @@ answers.forEach(item => {
 
             totalScore += questionsCount;
         } 
-        // else if (scoreCounter < questionsCount && firstQuestionNumber !== lastQuestionNumber) {
-        //     document.querySelector(`[data-again='${categoryNumber}']`).style.display = 'none';
-        //     document.querySelector(`[data-curtain='${categoryNumber}']`).style.display = 'none';
-        // }
 
         showModal(modalAnswer);
     });
@@ -513,10 +494,6 @@ moreScoreBtn.addEventListener('click', function() {
     showMoreCategories(scoreCards, moreScoreBtn);
 });
 
-// scoreBtn.addEventListener('click', function() {
-//     showLessCategories(categoriesCards, moreCategoriesBtn);
-// });
-
 timerCheckbox.addEventListener('click', function() {
     timerCheckbox.classList.toggle('timer-checkbox-checked');
 });
@@ -524,10 +501,7 @@ timerCheckbox.addEventListener('click', function() {
 
 volumeBtn.addEventListener('click', toggleVolumeIcon);
 volumeRange.addEventListener('click', updateRange);
-volumeRange.addEventListener('mousedown', updateRange);
 volumeRange.addEventListener('mousemove', updateRange);
-volumeRange.addEventListener('touchend', updateRange);
-volumeRange.addEventListener('touchmove', updateRange);
 
 saveBtn.addEventListener('click', function() {
     setUserSettings();
