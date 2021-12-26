@@ -427,6 +427,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .picture-wrap {
+    position: relative;
     margin-top: 30px;
     display: flex;
     align-items: center;
