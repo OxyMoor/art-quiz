@@ -78,16 +78,13 @@ body {
 }
 
 .quizes-page-wrap {
+    align-items: center;
+    justify-content: center;
     margin-bottom: 60px;
 }
 
 .artists-quiz {
-    background: url("../assets/artists-quiz.png")center no-repeat;
-    background-size: 120%;
-}
-
-.pictures-quiz {
-    background: url("../assets/pictures-quiz.png")center  no-repeat;
+    background: url("../assets/pictures-quiz.png")center no-repeat;
     background-size: 120%;
 }
 
@@ -97,7 +94,7 @@ body {
     display: inline-block;
     width: 100%;
     padding: 10px;
-    text-align: right;
+    text-align: center;
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -530,15 +527,15 @@ input[type=range]::-webkit-slider-thumb {
     color: #ffffff;
 }
 
-.question-picture-page {
+/* .question-picture-page {
     display: none;
-}
+} */
 
-.picture-option-image {
+/* .picture-option-image {
     width: 48%;
-}
+} */
 
-.picture-option-image:nth-child(1) {
+/* .picture-option-image:nth-child(1) {
     margin-right: 5px;
     margin-bottom: 5px;
 }
@@ -556,7 +553,7 @@ input[type=range]::-webkit-slider-thumb {
 .picture-option-image:nth-child(4) {
     margin-left: 5px;
     margin-top: 5px;
-}
+} */
 
 /* счет */
 
