@@ -1,5 +1,4 @@
 // TO DO: 
-// 2) добавить дотсы с индикацией верно / неверно по количеству картин в категории 
 
 // переменные
 const sections = document.querySelectorAll('.section'); 
@@ -15,7 +14,6 @@ const modals = document.querySelectorAll('.modal');
 const modalAnswer = document.querySelector('.modal-answer');
 const modalCongratulation = document.querySelector('.modal-congratulation');
 const modalGrand = document.querySelector('.modal-grand');
-const modalGO = document.querySelector('.modal-game-over');
 
 const settingsBtn = document.querySelector('.settings-button');
 const volumeRangeBtn = document.querySelector('.volume-range-button');
@@ -31,8 +29,6 @@ const fromGrandToHomeBtn = modalGrand.querySelector('.to-home-button');
 const fromCongratulationsToNextQuizBtn = modalCongratulation.querySelector('.next-quiz-button');
 const nextQuestBtn = document.querySelector('.next-button');
 const nextQuizBtn = document.querySelector('.next-quiz-button');
-const yesBtn = document.querySelector('.yes-button');
-const noBtn = document.querySelector('.no-button');
 const nextBtn = document.querySelector('.next-button');
 const moreCategoriesBtn = categoriesSection.querySelector('.show-more-categories');
 const moreScoreBtn = scoreSection.querySelector('.show-more-score');
@@ -46,7 +42,6 @@ const categoryCards = categoriesSection.querySelectorAll('.category-card');
 const pictureWrap = document.querySelector('.picture-wrap');
 
 const artQuizBtn = document.querySelector('.artists-quiz-name');
-const picQuizBtn = document.querySelector('.pictures-quiz-name');
 
 const answers = document.querySelectorAll('.answer');
 
@@ -82,7 +77,6 @@ const default_set = {
 let user_set = {};
 
 let categoryNumber;
-let quizType;
 let firstQuestionNumber;
 let lastQuestionNumber;
 let questionNumber;
@@ -97,8 +91,6 @@ let playedCategories = {};
 const questionsCount = 10;
 const categoriesCount = 10;
 const allPicturesCount = 200;
-const artistsType = 0;
-const picturesType = allPicturesCount / 2;
 
 let scoreInfo = {};
 
@@ -237,17 +229,9 @@ function setTime() {
  
 
 function renderQuestionType() {
-    if (quizType === artistsType) {
-        pictureWrap.innerHTML = `<img class="picture-image" src="assets/question-01.png" alt="image: picture">
-                                    <span class="progress"> 1 / 10 </span>`;
-        document.querySelector('.question').textContent = 'выберите автора картины';
-    } else if (quizType === picturesType) {
-        pictureWrap.innerHTML = `<img class="picture-option-image" src="assets/question-item-1.png" alt="image: picture">
-        <img class="picture-option-image" src="assets/question-item-2.png" alt="image: picture">
-        <img class="picture-option-image" src="assets/question-item-3.png" alt="image: picture">
-        <img class="picture-option-image" src="assets/question-item-4.png" alt="image: picture">`;
-        document.querySelector('.question').textContent = 'выберите картину -автора-';
-    }
+    pictureWrap.innerHTML = `<img class="picture-image" src="assets/question-01.png" alt="image: picture">
+                                <span class="progress"> 1 / 10 </span>`;
+    document.querySelector('.question').textContent = 'выберите автора картины';
 }
 
 function renderArtistsQuestion() {
@@ -299,7 +283,7 @@ function renderArtistsQuestion() {
         clearInterval(interval);
 
 
-        firstQuestionNumber = (+categoryNumber - 1) * questionsCount + quizType;
+        firstQuestionNumber = (+categoryNumber - 1) * questionsCount;
         categoryNumber = null;
     } else {
         document.querySelector('.picture-image').src = `https://raw.githubusercontent.com/SeriakovaOksana/image-data/master/full/${firstQuestionNumber}full.jpg`;
@@ -310,11 +294,7 @@ function renderArtistsQuestion() {
             answersArr.push(rightAnswer);
 
             for (let i = 0; i < 3; i++) {
-                if (quizType === artistsType) {
-                    answersArr.push(result[getRandomNumber(100, 199)]['author']);
-                } else {
-                    answersArr.push(result[getRandomNumber(0, 99)]['author']);
-                }
+                answersArr.push(result[getRandomNumber(100, 199)]['author']);
             }
 
             randomAnswers = shuffleArr(answersArr);
@@ -367,12 +347,6 @@ defaultBtn.addEventListener('click', function() {
 
 artQuizBtn.addEventListener('click', function() {
     showActiveSection(categoriesSection);
-    quizType = artistsType;
-});
-
-picQuizBtn.addEventListener('click', function() {
-    showActiveSection(categoriesSection);
-    quizType = picturesType;
 });
 
 fromCategoriesToHomeBtn.addEventListener('click', function() {
@@ -401,8 +375,8 @@ categoryCards.forEach(item => {
             showActiveSection(questionSection);
             showLessCategories(categoriesCards, moreCategoriesBtn);
     
-            firstQuestionNumber = (+categoryNumber - 1) * questionsCount + quizType;
-            lastQuestionNumber = (+categoryNumber * questionsCount) + quizType;
+            firstQuestionNumber = (+categoryNumber - 1) * questionsCount;
+            lastQuestionNumber = +categoryNumber * questionsCount;
     
             renderQuestionType();
             renderArtistsQuestion();
@@ -520,13 +494,3 @@ defaultBtn.addEventListener('click', function() {
 });
 
 showChosenSettings();
-
-// console.log(`Всего: 138 / 220
-// Не реализован подбор вопросов/ответам к типу викторины “картины”, лучше туда не заходить, а то все ломается... 
-// 1.Стартовая страница и навигация +20
-// 2.Настройки +20 (есть возможность нажать в настройках включить/выключить игру на время и эта настройка сохраняется, но ее применение не реализовано)
-// 3.Страница категорий +30
-// 4.Страница с вопросами +38 (варианты ответов бывает повторяются, правильный и неправильный выбранный вариант не отличаются по цвету)
-// 5.Страница с результатами +0 (нет страницы с результатами)
-// 6.Плавная смена изображений +10
-// 7.Реализована анимация +20`)
